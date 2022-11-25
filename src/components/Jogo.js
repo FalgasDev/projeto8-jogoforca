@@ -58,7 +58,7 @@ export default function Jogo({words, choseWord, setChoseWord, isClicked, setIsCl
 			</div>
 			<div id="game-play">
 				<button data-test="choose-word" onClick={choseWordButton}>Escolher Palavra</button>
-				<h1 data-test="word" data-answer={!isClicked ? choseWord.join('') : ''} className={verifyClass()}>{teste()}</h1>
+				<h1 data-test="word" data-answer={isClicked ? choseWord.join('') : ''} className={verifyClass()}>{teste()}</h1>
 			</div>
 		</div>
 	);
