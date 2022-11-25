@@ -1,5 +1,4 @@
 export default function Jogo({words, choseWord, setChoseWord, setIsClicked, setCount ,count, setDisabledLetters, disabledLetters, setIsWinner, isWinner}) {
-
 	function choseWordButton() {
 		if (choseWord.length === 0) {
 			setChoseWord(words.sort(() => Math.random() - 0.5)[0].split(''))
@@ -42,6 +41,16 @@ export default function Jogo({words, choseWord, setChoseWord, setIsClicked, setC
 		}
 	}
 
+	function teste() {
+		if(count >= 6) {
+			return choseWord
+		} else if (isWinner) {
+			return choseWord
+		} else {
+			return choseWord.map(a => disabledLetters.includes(a) ? a : '_ ')
+		}
+	}
+
 	return (
 		<div id="game">
 			<div id="game-image">
@@ -49,7 +58,7 @@ export default function Jogo({words, choseWord, setChoseWord, setIsClicked, setC
 			</div>
 			<div id="game-play">
 				<button onClick={choseWordButton}>Escolher Palavra</button>
-				<h1 className={verifyClass()}>{count >= 6 ? choseWord : choseWord.map(a => disabledLetters.includes(a) ? a : '_ ')}</h1>
+				<h1 className={verifyClass()}>{teste()}</h1>
 			</div>
 		</div>
 	);
