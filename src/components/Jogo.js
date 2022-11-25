@@ -1,9 +1,15 @@
-export default function Jogo({words, choseWord, setChoseWord, isClicked, setIsClicked, count, disabledLetters, isWinner}) {
+export default function Jogo({words, choseWord, setChoseWord, setIsClicked, setCount ,count, setDisabledLetters, disabledLetters, setIsWinner, isWinner}) {
 
 	function choseWordButton() {
 		if (choseWord.length === 0) {
 			setChoseWord(words.sort(() => Math.random() - 0.5)[0].split(''))
-			setIsClicked(!isClicked)
+			setIsClicked(true)
+		} else {
+			setChoseWord(words.sort(() => Math.random() - 0.5)[0].split(''))
+			setIsClicked(true)
+			setCount(0)
+			setDisabledLetters([])
+			setIsWinner(false)
 		}
 	}
 
