@@ -53,6 +53,10 @@
   color: #FF0000;
 }
 
+#game-play h1.win {
+  color: #27AE60;
+}
+
 #words {
   display: flex;
   width: 676px;

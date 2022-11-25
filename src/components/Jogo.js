@@ -1,5 +1,4 @@
-export default function Jogo({words, choseWord, setChoseWord, isClicked, setIsClicked, count, disabledLetters}) {
-	console.log(choseWord)
+export default function Jogo({words, choseWord, setChoseWord, isClicked, setIsClicked, count, disabledLetters, isWinner}) {
 
 	function choseWordButton() {
 		if (choseWord.length === 0) {
@@ -27,6 +26,16 @@ export default function Jogo({words, choseWord, setChoseWord, isClicked, setIsCl
 		}
 	}
 
+	function verifyClass() {
+		if(count >= 6) {
+			return 'lost'
+		} else if (isWinner) {
+			return 'win'
+		} else {
+			return ''
+		}
+	}
+
 	return (
 		<div id="game">
 			<div id="game-image">
@@ -34,7 +43,7 @@ export default function Jogo({words, choseWord, setChoseWord, isClicked, setIsCl
 			</div>
 			<div id="game-play">
 				<button onClick={choseWordButton}>Escolher Palavra</button>
-				<h1 className={count >= 6 ? 'lost' : ''}>{count >= 6 ? choseWord : choseWord.map(a => disabledLetters.includes(a) ? a : '_ ')}</h1>
+				<h1 className={verifyClass()}>{count >= 6 ? choseWord : choseWord.map(a => disabledLetters.includes(a) ? a : '_ ')}</h1>
 			</div>
 		</div>
 	);
