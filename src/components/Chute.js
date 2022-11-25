@@ -35,11 +35,12 @@ export default function Chute({
 		<div id="guess">
 			<p>Já sei a palavra!</p>
 			<input
+        data-test="guess-input"
 				onChange={(e) => setInputValue(e.target.value)}
 				disabled={disableInput()}
         value={inputValue}
 			></input>
-			<button onClick={verifyInput} disabled={disableInput()}>
+			<button data-test="guess-button" onClick={verifyInput} disabled={disableInput()}>
 				Chutar
 			</button>
 		</div>

@@ -18,6 +18,7 @@ export default function App() {
 				words={palavras}
 				choseWord={choseWord}
 				setChoseWord={setChoseWord}
+				isClicked={isClicked}
 				setIsClicked={setIsClicked}
         setCount={setCount}
 				count={count}

@@ -73,6 +73,7 @@ function Word({
 
 	return (
 		<button
+			data-test="letter"
 			className={
 				disabledLetters.includes(word) || !isClicked || count >= 6 || isWinner
 					? 'selected'

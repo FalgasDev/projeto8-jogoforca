@@ -1,4 +1,4 @@
-export default function Jogo({words, choseWord, setChoseWord, setIsClicked, setCount ,count, setDisabledLetters, disabledLetters, setIsWinner, isWinner}) {
+export default function Jogo({words, choseWord, setChoseWord, isClicked, setIsClicked, setCount ,count, setDisabledLetters, disabledLetters, setIsWinner, isWinner}) {
 	function choseWordButton() {
 		if (choseWord.length === 0) {
 			setChoseWord(words.sort(() => Math.random() - 0.5)[0].split(''))
@@ -54,11 +54,11 @@ export default function Jogo({words, choseWord, setChoseWord, setIsClicked, setC
 	return (
 		<div id="game">
 			<div id="game-image">
-				<img src={switchImage()} alt="" />
+				<img data-test="game-image" src={switchImage()} alt="" />
 			</div>
 			<div id="game-play">
-				<button onClick={choseWordButton}>Escolher Palavra</button>
-				<h1 className={verifyClass()}>{teste()}</h1>
+				<button data-test="choose-word" onClick={choseWordButton}>Escolher Palavra</button>
+				<h1 data-test="word" data-answer={!isClicked ? choseWord.join('') : ''} className={verifyClass()}>{teste()}</h1>
 			</div>
 		</div>
 	);
