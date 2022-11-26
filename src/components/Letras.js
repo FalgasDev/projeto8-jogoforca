@@ -9,13 +9,13 @@ export default function Letras({
 	setIsWinner,
 }) {
 
-  const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+	const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 	return (
-		<div id="words">
+		<div id="letters">
 			{alfabeto.map((a) => (
-				<Word
-					word={a}
+				<Letter
+					letter={a}
 					isClicked={isClicked}
 					choseWord={choseWord}
 					setCount={setCount}
@@ -23,23 +23,23 @@ export default function Letras({
 					disabledLetters={disabledLetters}
 					setDisabledLetters={setDisabledLetters}
 					isWinner={isWinner}
-          setIsWinner={setIsWinner}
+					setIsWinner={setIsWinner}
 				/>
 			))}
 		</div>
 	);
 }
 
-function Word({
-	word,
+function Letter({
+	letter,
 	isClicked,
 	choseWord,
 	setCount,
 	count,
 	disabledLetters,
 	setDisabledLetters,
-  isWinner,
-  setIsWinner,
+	isWinner,
+	setIsWinner,
 }) {
 	function disable(req) {
 		const newArray = [...disabledLetters, req];
@@ -55,7 +55,7 @@ function Word({
 			? document.querySelector('h1')
 			: '';
 		if (word.innerHTML === choseWord.join('')) {
-			setIsWinner(true)
+			setIsWinner(true);
 		}
 	}
 
@@ -64,7 +64,7 @@ function Word({
 			return true;
 		}
 
-		if (!disabledLetters.includes(word) && isClicked) {
+		if (!disabledLetters.includes(letter) && isClicked) {
 			return false;
 		} else {
 			return true;
@@ -75,14 +75,14 @@ function Word({
 		<button
 			data-test="letter"
 			className={
-				disabledLetters.includes(word) || !isClicked || count >= 6 || isWinner
+				disabledLetters.includes(letter) || !isClicked || count >= 6 || isWinner
 					? 'selected'
 					: ''
 			}
-			onClick={() => disable(word)}
+			onClick={() => disable(letter)}
 			disabled={disableButton()}
 		>
-			{word.toUpperCase()}
+			{letter.toUpperCase()}
 		</button>
 	);
 }

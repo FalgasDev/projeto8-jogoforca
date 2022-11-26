@@ -9,8 +9,8 @@ export default function App() {
 	const [isClicked, setIsClicked] = useState(false);
 	const [count, setCount] = useState(0);
 	const [disabledLetters, setDisabledLetters] = useState([]);
-  const [isWinner, setIsWinner] = useState(false)
-	const [inputValue, setInputValue] = useState('')
+	const [isWinner, setIsWinner] = useState(false);
+	const [inputValue, setInputValue] = useState('');
 
 	return (
 		<div className="App">
@@ -20,12 +20,12 @@ export default function App() {
 				setChoseWord={setChoseWord}
 				isClicked={isClicked}
 				setIsClicked={setIsClicked}
-        setCount={setCount}
+				setCount={setCount}
 				count={count}
-        setDisabledLetters={setDisabledLetters}
+				setDisabledLetters={setDisabledLetters}
 				disabledLetters={disabledLetters}
-        setIsWinner={setIsWinner}
-        isWinner={isWinner}
+				setIsWinner={setIsWinner}
+				isWinner={isWinner}
 			/>
 			<Letras
 				isClicked={isClicked}
@@ -34,11 +34,11 @@ export default function App() {
 				setCount={setCount}
 				disabledLetters={disabledLetters}
 				setDisabledLetters={setDisabledLetters}
-        isWinner={isWinner}
-        setIsWinner={setIsWinner}
+				isWinner={isWinner}
+				setIsWinner={setIsWinner}
 			/>
-			<Chute 
-        isClicked={isClicked}
+			<Chute
+				isClicked={isClicked}
 				inputValue={inputValue}
 				setInputValue={setInputValue}
 				choseWord={choseWord}
@@ -46,7 +46,7 @@ export default function App() {
 				count={count}
 				setCount={setCount}
 				isWinner={isWinner}
-      />
+			/>
 		</div>
 	);
 }
