@@ -15,6 +15,7 @@ export default function Letras({
 		<div id="letters">
 			{alfabeto.map((a) => (
 				<Letter
+					key={a}
 					letter={a}
 					isClicked={isClicked}
 					choseWord={choseWord}
